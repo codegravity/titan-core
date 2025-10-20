@@ -5,7 +5,7 @@ import { Menu, X, ChevronDown } from 'lucide-astro';
 import Button from '@components/ui/Button.astro';
 
 const ctaButton = {
-    name: 'Contact Us',
+    name: 'Kontakta Oss',
     link: '/contact',
 };
 
@@ -21,9 +21,9 @@ const isCurrentPage = (link: string) => {
 };
 ---
 
-<header class="fixed top-0 z-50 w-full left-0">
-    <div class="site-container mx-auto px-4 mt-4">
-        <div class="flex justify-between items-center bg-white py-4 rounded-lg px-4 border-black border">
+<header class="fixed top-0 z-50 w-full left-0  ">
+    <div class="site-container mx-auto px-4 mt-4   ">
+        <div class="flex justify-between items-center bg-white rounded-lg py-0 pl-0  px-4 border-0 ">
             <Logo />
             <nav class="relative flex items-center gap-2 lg:gap-8" aria-label="Site Navigation">
                 {/* Desktop Menu */}
@@ -35,7 +35,7 @@ const isCurrentPage = (link: string) => {
                                     <a
                                         href={item.link}
                                         class:list={[
-                                            'text-small font-medium rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                            'text-base font-medium rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
                                             isCurrentPage(item.link)
                                                 ? 'text-nav-text-current font-semibold'
                                                 : 'text-nav-text hover:text-nav-text-hover',
@@ -60,7 +60,7 @@ const isCurrentPage = (link: string) => {
                                         />
                                     )}
                                 </div>
-                                {item.children && (
+                                {item.children &&  (
                                     <ul
                                         class:list={[
                                             'submenu absolute mt-2 bg-nav-submenu-bg border-black border rounded-md min-w-[200px] transition-all duration-200 opacity-0 invisible overflow-hidden z-50',
@@ -79,7 +79,7 @@ const isCurrentPage = (link: string) => {
                                                     ]}
                                                     aria-current={isCurrentPage(child.link) ? 'page' : undefined}
                                                 >
-                                                    {child.name}
+                                                    {child.name }
                                                 </a>
                                             </li>
                                         ))}

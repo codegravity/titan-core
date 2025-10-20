@@ -4,6 +4,17 @@ import { getBackgroundColor, getTextColor, getPaddingClass } from '@utils/styleU
 import type { ThemeColor, PaddingSize } from '@utils/styleUtils';
 import { siteConfig } from '@data/config';
 import { Mail, Phone, MapPin } from 'lucide-astro';
+
+
+
+
+
+
+
+
+
+
+
 export interface Props {
     content?: {
         title?: string;
@@ -37,7 +48,7 @@ const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
     <div class="site-container px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-                <h2 class:list={[textColor]}>Contact Information</h2>
+                <h2 class:list={[textColor]}>Kontakta oss</h2>
                 <p class:list={[textColor]}>
                     We're here to help you with your questions and concerns.
                 </p>

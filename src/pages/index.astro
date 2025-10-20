@@ -1,6 +1,8 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import { ClientRouter, fade, slide } from 'astro:transitions';
 import Hero from '@components/sections/Hero.astro';
+//import GoogleMap from '@components/sections/heroMap.astro';
 import SplitPanel from '@components/sections/SplitPanel.astro';
 import Features from '@components/sections/Features.astro';
 import Stats from '@components/sections/Stats.astro';
@@ -12,39 +14,75 @@ import CtaBanner from '@components/sections/CtaBanner.astro';
 import Faqs from '@components/sections/Faqs.astro';
 import { faqLists } from '@data/faqs';
 import RecentPosts from '@components/sections/RecentPosts.astro';
-import heroImage from '../assets/images/home/default-hero-2.jpg';
-import styleGuideImage from '../assets/images/home/developer.jpg';
+import heroImage from '../assets/images/home/newy.jpg';
+import styleGuideImage from '../assets/images/home/ll-winter1.jpg';
 
-const seoTitle = "Modern, High-Performance Astro Theme";
-const seoDescription = "A modern, high-performance Astro theme for developer portfolios and documentation sites.";
+import SwiperHero from '@components/sections/SwiperHero.astro';
+import swiperImage1 from '../assets/images/home/newy.jpg';
+import swiperImage2 from '../assets/images/home/IMG_5183-scaled.jpg';
+import swiperImage3 from '../assets/images/home/skutan-gondolen1.jpg';
+import swiperImage4 from '../assets/images/home/ll-summer3.jpg';
+
+
+const seoTitle = "Åreskutan.se, boende och aktivititer i Åre";
+const seoDescription = "Boende och adventure i centralt Åre.";
 
 const heroContent = {
-    title: 'The Foundation for Beautiful Astro JS Websites',
-    description: 'Titan Core is a minimal, performance-focused Astro JS theme that serves as the perfect foundation for your next web project. Built with clean code and modern best practices, it\'s designed to be extended and customized to your specific needs.',
+    title: 'Boende och Aktiviteter i Åre',
+    description: 'Nara till alt.',
     buttons: [
         {
-            text: 'Get Started',
-            link: '/contact',
+            text: 'Boende',
+            link: '/boende',
             target: '_self'
         },
         {
-            text: 'View on GitHub',
-            link: 'https://github.com/rspisarski/titan-core',
-            target: '_blank'
+            text: 'Aktiviteter',
+            link: '/aktiviteter',
+            target: '_self'
         }
     ],
     backgroundImage: heroImage,
     overlayOpacity: 0.2
 }
 
+const swiperHeroContent = {
+    title: 'Boende och Aktiviteter i Åre',
+    description: 'Nara till alt.',
+    buttons: [
+        {
+            text: 'Boende',
+            link: '/boende',
+            target: '_self'
+        },
+        {
+            text: 'Aktiviteter',
+            link: '/aktiviteter',
+            target: '_self'
+        },
+        {
+            text: 'FAQ',
+            link: '#faq',
+            target: '_self'
+        }
+    ],
+    swiperImages: [
+        { swiperBackgroundImage: swiperImage1 },
+        { swiperBackgroundImage: swiperImage2 },
+        { swiperBackgroundImage: swiperImage3 },
+        { swiperBackgroundImage: swiperImage4 }
+    ],
+    overlayOpacity: 0.2
+}
+
 const featuresSection = {
-    eyebrow: "CORE FEATURES",
-    title: "Everything You Need, Nothing You Don't",
-    description: "Titan Core gives you a solid foundation with essential features while staying lightweight and customizable. Start with a clean slate and build exactly what you need without the bloat.",
+    eyebrow: "Alt du behöver i narhet.",
+    title: "Härligt boende i Åre",
+    description: "Vi erbjuder boende i Åre året runt.  Bra boenden för dig, dina vänner och din familj i Åre. Vill du spendera några dagar eller veckor i en anrik fjällby som erbjuder ett gediget utbud av såväl skidåkning, shopping som restauranger och barer?  Kanske känner du till och med igen skidbackarna och vyerna från många världscupstävlingar eller internationella resemagasin. Vi erbjuder modernt, bekvämt och centralt boende i Åre. Alla säsonger och årstider har sin tjusning – därför har vi öppet året runt. Vintertid är skidåkning i fokus, medans sommaren erbjuder cykling, vandring, fiske och skärmflygning.",
     features: featureLists.main.features,
     button: {
-        text: "View Theme Info",
-        link: "/theme-info",
+        text: "Mer om våran boende",
+        link: "/boende",
         variant: "primary" as const
     }
 }
@@ -61,17 +99,17 @@ const FooterCta = {
     }
 }
 
-const styleGuideSection = {
-    eyebrow: "Design System",
-    headline: "Consistent & Beautiful Components",
-    description: "Titan Core comes with a complete style guide to ensure your projects maintain visual consistency. From typography to interactive elements, we've carefully crafted each component.",
+const boendeIntroSection = {
+    eyebrow: "3 lokal i byn, för alla behöv.",
+    headline: "Boende i Åre",
+    description: "Välkommen till Åreskutan, där vi erbjuder året-runt-boende mitt i Åre. Här finns något för alla – vare sig du vill njuta av skidåkning, shopping, restaurangbesök eller bara komma nära naturen. Våra moderna och bekväma boenden ligger centralt, vilket gör att du kan njuta av allt Åre har att erbjuda inom promenadavstånd. Vi har ett brett urval av boenden för både kortare och längre vistelser, perfekt för dig, dina vänner eller familjen. Med oss kan du skapa en oförglömlig fjällsemester där kvalitetstid och aktivitet går hand i hand.",
     image: {
         src: styleGuideImage,
-        alt: "Featured image"
+        alt: "Boende Åre"
     },
     buttons: [
         {
-            text: "Explore Style Guide",
+            text: "Boka Boende",
             link: "/style-guide",
             variant: "primary" as const
         }
@@ -114,11 +152,15 @@ const logosSection = {
 }
 
 const faqsSection = {
-    eyebrow: "FAQs",
-    title: 'Frequently Asked Questions',
-    description: 'Find answers to common questions about our platform and services.',
+    eyebrow: "Vanliga Frågor",
+    title: 'FAQ',
+    description: 'Du är välkommen a kontakta oss om du här ytterlig frågor .',
     faqs: faqLists.main.faqs
 }
+
+/* const heroMapSection = {
+    options: AstroLeafletOptionsType.main.
+} */
 
 const recentPostsSection = {
     eyebrow: "LATEST INSIGHTS",
@@ -133,12 +175,27 @@ const recentPostsSection = {
 ---
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
-    <Hero content={heroContent} />
-    <Features content={featuresSection} padding="base" background="light" />
+    <!-- <Hero content={heroContent} /> -->
+    <SwiperHero content={swiperHeroContent} />
+   
+ <!--    <GoogleMap /> -->
+<!-- <CreateLeafletIcon name='myicon-name' options={{className:"leaflet-icon-myicon", iconSize: [20,20]}}/>
+<Leaflet
+    tileByName:'Google&type=hybrid',
+    markers:{
+        [
+            { latlng: [48.8575299,2.3509908], options: {title: 'Paris'}},
+            { latlng: [40.7194951,-73.9985291], options: {title: 'New York', }, astroIconName:'myicon-name'}
+        ]
+    }
+/> -->
+  <!--  <Features content={featuresSection} padding="base" background="light" />
     <RecentPosts content={recentPostsSection} background="base" padding="base" postsToShow={3} category="Theme Usage"/>
-    <SplitPanel content={styleGuideSection} imagePosition="right" background="light" padding="base" />
+    
     <CtaBanner content={mainCta} variant="contained" background="light" paddingBottom="base" />
     <Logos content={logosSection} background="base" padding='small'/>
-    <Stats content={sideBySideStats} background='dark' padding="base"/>
+    <Stats content={sideBySideStats} background='dark' padding="base"/>-->
+    <SplitPanel content={boendeIntroSection} imagePosition="right" background="light" padding="base" />
+    <Features content={featuresSection} padding="base" background="light" />
     <Faqs content={faqsSection} background="base" padding="base" />
 </Layout>

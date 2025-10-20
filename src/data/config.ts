@@ -1,21 +1,22 @@
 export const siteConfig = {
-  companyName: 'Titan Core',
-  siteUrl: 'https://titan-core.com',
+  companyName: 'Åreskutans Fästighets ab',
+  siteUrl: 'https://demo.areskutan.se',
   Socials: {
-      xSocial: 'https://x.com/astrodotbuild',
-      Github: 'https://github.com/withastro',
-      Instagram: 'https://www.instagram.com/astrodotbuild',
-      LinkedIn: 'https://www.linkedin.com/company/astrodotbuild',
-      Email: 'support@titan-core.com',
-      Phone: '+123 456 7890',
-      Location: '123 Main St, Anytown, USA',
+      xSocial: 'nada',
+      Github: 'nada',
+      Instagram: 'https://www.instagram.com/skysport_are',
+      FaceBook: 'https://www.facebook.com/Skysport.se',
+      LinkedIn: 'nada',
+      Email: 'info@areskutan.se',
+      Phone: '+46 70 569 90 89, +46 647 511 86',
+      Location: 'Årevägen 173, 837 52 Åre, Sweden',
   }
 };
 
 export const SEO = {
   Separator: '|',
-  SiteName: 'Titan Core',
-  defaultDescription: 'A modern, high-performance Astro JS theme',
+  SiteName: 'Åreskutan',
+  defaultDescription: 'Demo for Åreskutan using new tech',
 };
   
 export const blogSetting = {

@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 
-interface HeroContent {
+interface InnerHeroContent {
     title: string;
     description: string;
     backgroundImage?: any;
@@ -9,11 +9,12 @@ interface HeroContent {
 }
 
 interface Props {
-    content: HeroContent;
+    content: InnerHeroContent;
 }
 
 const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1;
+
 ---
 
 <section class="w-full border-b pt-38 pb-18 relative">
@@ -21,12 +22,14 @@ const opacity = content.overlayOpacity ?? 1;
             {content.backgroundImage && (
                 <Image
                     src={content.backgroundImage}
-                    alt=""
+                    alt="innerhero"
                     width={1920}
                     height={1080}
                     class="w-full h-full object-cover"
                     quality={70}
                     format="webp"
+                    loading="eager"
+                    decoding="async"
                 />
             )}
             <div
@@ -34,7 +37,6 @@ const opacity = content.overlayOpacity ?? 1;
                 style={`opacity: ${opacity};`}
             ></div>
         </div>
-
     <div class="site-container mx-auto px-4 relative z-10">
         <div>
             <h1 class="text-white" data-aos="fade-up">{content.title}</h1>

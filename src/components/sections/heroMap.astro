@@ -1,0 +1,42 @@
+---
+import { Leaflet, CreateLeafletIcon } from "astro-leaflet";
+import type {AstroLeafletOptionsType, AstroLeafletMarkerType}  from 'astro-leaflet';
+
+
+const markers: AstroLeafletMarkerType[] = []
+markers.push( {latlng: [48.8575299,2.3509908], options: {title: 'Paris'}} )
+markers.push( {latlng: [40.7194951,-73.9985291], options: {title: 'New York', }, astroIconName:'myicon-name'} )
+
+const options: AstroLeafletOptionsType = {
+	tileByName: 'Google&type=hybrid',
+	// tileLayer: 'https://{s}.google.com/vt/lyrs=s,h&hl=en&x={x}&y={y}&z={z}',
+	// tileLayerOptions: {
+	// 	subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
+	// 	attribution: 'Map data &copy; Google',
+	// },
+	markers: markers,
+}
+
+/* export interface Props {
+    options: AstroLeafletOptionsType[];   
+    markers: AstroLeafletMarkerType[];
+    
+} */
+---
+
+<section class:list={["relative"]}>
+    <div class="site-container px-4">
+Map???
+        <CreateLeafletIcon name='myicon-name' options={{className:"leaflet-icon-myicon", iconSize: [20,20]}}/>
+        <Leaflet options={options}/>
+
+        </div>
+</section>
+<style is:global>
+	/* class definition used to define the custom icon */
+	.leaflet-icon-myicon {
+		background:red;
+		border:5px solid rgba(255,255,255,0.5);
+		border-radius:50%;
+	}
+</style>

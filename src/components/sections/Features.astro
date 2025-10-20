@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { Feature } from '@data/features';
 import Button from '@components/ui/Button.astro';
 import Eyebrow from '@components/ui/Eyebrow.astro';
@@ -76,33 +77,37 @@ const paddingClass = getPaddingClass({
             </div>
         )}
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-auto-fit gap-8 auto-rows-fr">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-auto-fit gap-8 auto-rows-fr">
             {features.map((feature, index) => (
-                <div 
-                    class:list={[
-                        "p-6 rounded-lg border border-black",
-                        background === 'dark' ? 'bg-background-base/10' : 'bg-background/90',
-                        "flex flex-col"
-                    ]}
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
-                >
-                    <div class:list={[
-                        "w-12 h-12 flex items-center justify-center rounded-lg mb-4",
-                        "bg-primary"
-                    ]}>
-                        <feature.icon
-                            size={24}
-                            class="text-white"
+                <div class="border-white border-b rounded-lg border relative aspect-[16/9] overflow-hidden group-hover:border-primary transition-colors duration-300">
+                    <div 
+                        class:list={[
+                            "flex flex-col border-white border-b rounded-lg border relative aspect-[16/9]  group-hover:border-primary transition-colors duration-300"
+                        ]}
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                    >
+                        <Image
+                            src={feature.src}
+                            alt={feature.alt}
+                            width={600}
+                            height={338}
+                            quality={70}
+                            format="webp"
+                            class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 "
                         />
                     </div>
-                    <h3 class:list={["text-h4 mb-2", textColor]}>
-                        {feature.title}
-                    </h3>
-                    <p class:list={["text-base", textColor, "opacity-90"]}>
-                        {feature.description}
-                    </p>
-                </div>
+               
+                   <div class="absolute top-0 left-0 right-0 ">    
+                            <h4 class:list={["text-h4   px-6 py-4 text-white-400"]}>{feature.title}</h4>   
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 ">    
+                            <p class:list={["text-base p-6 text-white"]}>{feature.description}</p>  
+                    </div>
+
+           
+            </div> <!-- end feature -->
+    
             ))}
         </div>
     </div>

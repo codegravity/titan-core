@@ -1,10 +1,20 @@
 import { Zap, Shield, Heart, Coffee, Smile, Type, TabletSmartphone, CodeXml } from 'lucide-astro';
 
+
+import type { ImageMetadata } from 'astro';
+
+// Import your logo images
+// Replace these imports with your actual logo files
+import imgLakeLodge from '../assets/images/home/ll-summer2.jpg';
+import imgSlalom from '../assets/images/home/slalom2b-2.jpg';
+import imgSilva from '../assets/images/home/silvavillan_big.jpg';
 // Define the LucideIcon type based on the structure of Lucide icons
 type LucideIcon = typeof Zap;
 
 export interface Feature {
     icon: LucideIcon;
+    src: ImageMetadata;
+    alt: string;
     title: string;
     description: string;
 }
@@ -21,20 +31,26 @@ export const featureLists: Record<string, FeatureList> = {
         features: [
             {
                 icon: Zap,
-                title: 'Lightning Fast Performance',
-                description: 'Optimized for speed and performance'
+                src: imgLakeLodge,
+                alt: 'Lake Lodge Åre',
+                title: 'Lake Lodge',
+                description: 'Lägenhetshotell vid VM8 liften'
             },
             {
                 icon: Shield,
-                title: 'SEO Optimized Structure',
-                description: 'Built with SEO best practices in mind'
+                src: imgSlalom,
+                alt: 'Slalomsvängen, Åre',
+                title: 'Slalomsvängen',
+                description: '9+2 bädds lägenhet i 2 plan med Ski in Ski out läge'
             },
             {
                 icon: TabletSmartphone,
-                title: 'Responsive by Default',
-                description: 'Mobile-friendly out of the box'
-            },
-            {
+                src: imgSilva,
+                alt: 'Silvavillan, Åre',
+                title: 'Silvavillan',
+                description: '10 bädds stuga centralt i Åre'
+            }
+ /*            {
                 icon: Smile,
                 title: 'Easy Customization',
                 description: 'Customize the theme to your liking'
@@ -48,7 +64,7 @@ export const featureLists: Record<string, FeatureList> = {
                 icon: CodeXml,
                 title: 'Minimal Dependencies',
                 description: 'Keep your project lightweight'
-            }
+            } */
         ]
     },
     secondary: {
@@ -56,16 +72,22 @@ export const featureLists: Record<string, FeatureList> = {
         features: [
             {
                 icon: Heart,
+                                scr: imgLakeLodge,
+                alt: 'Lake Lodge Åre',
                 title: 'Made with Love',
                 description: 'Crafted with attention to detail'
             },
             {
                 icon: Coffee,
+                                scr: imgLakeLodge,
+                alt: 'Lake Lodge Åre',
                 title: 'Always Fresh',
                 description: 'Regular updates and improvements'
             },
             {
                 icon: Smile,
+                scr: imgLakeLodge,
+                alt: 'Lake Lodge Åre',
                 title: 'User Friendly',
                 description: 'Intuitive and easy to use'
             }

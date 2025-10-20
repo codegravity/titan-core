@@ -2,8 +2,10 @@
 
 @theme {
 
+    --color-primary-cg: #0067A6;
+     --color-primary-light: lch(from var(--color-primary)  calc(l + 20) c h );
     --color-primary: #3557c1;
-    --color-primary-light: #4b6ed4;
+    /*color-primary-light: #4b6ed4;*/
     --color-primary-dark: #1a3c8c;
 
     --color-secondary: #cc9900;

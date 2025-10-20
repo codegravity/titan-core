@@ -11,14 +11,22 @@
         "astro": "astro"
     },
     "dependencies": {
-        "aos": "^2.3.4"
+        "@astrojs/svelte": "^7.2.0",
+        "aos": "^2.3.4",
+        "astro-breadcrumbs": "^3.3.1",
+        "astro-leaflet": "^1.8.1",
+        "astro-swiper": "^1.1.0",
+        "nodemailer": "^7.0.9",
+        "svelte": "^5.40.1",
+        "typescript": "^5.9.3"
     },
     "devDependencies": {
         "@astrojs/check": "^0.9.4",
-        "@astrojs/sitemap": "^3.3.0",
+        "@astrojs/sitemap": "^3.6.0",
         "@tailwindcss/vite": "^4.0.14",
         "@types/aos": "^3.0.7",
-        "astro": "^5.5.3",
+        "@types/nodemailer": "^7.0.2",
+        "astro": "^5.14.5",
         "lucide-astro": "^0.483.0",
         "prettier": "^3.5.3",
         "prettier-plugin-astro": "^0.14.1"

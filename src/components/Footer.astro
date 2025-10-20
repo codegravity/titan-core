@@ -3,6 +3,7 @@ import { footerMenu, legalMenu } from '@data/menu';
 import Logo from '@components/Logo.astro';
 import Button from '@components/ui/Button.astro';
 import { siteConfig } from '@data/config';
+import TopButton from "@components/ui/ScrollToTopBtn.astro";
 
 interface ButtonProps {
   text: string;
@@ -18,6 +19,7 @@ interface Props {
     button: ButtonProps;
   };
 }
+
 
 const { footerCta } = Astro.props;
 
@@ -36,9 +38,9 @@ const cta = footerCta || defaultCta;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class={`bg-black text-white pb-small ${cta.hideCta ? 'pt-large' : ''}`}>
+<footer class={`hero-background text-white pb-small ${cta.hideCta ? 'pt-large' : ''}`}>
   <div class="site-container mx-auto px-4">
-    {!cta.hideCta && (
+<!--     {!cta.hideCta && (
       <div class="text-center border-b border-background-light mb-12 py-small">
         <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">{cta.title}</h2>
         <p class="text-white mb-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
@@ -55,17 +57,32 @@ const currentYear = new Date().getFullYear();
           {cta.button.text}
         </Button>
       </div>
-    )}
+    )} -->
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-background-light">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 pt-8 border-b border-background-light">
       <div class="col-span-1">
         <Logo variant="footer" />
         <p class="mt-4 text-white">
-          Empowering your digital journey with innovative solutions.
+          Boende och aktiviteter i Åre.
         </p>
       </div>
-      
+      <div class="col-span-2">
+        <p class="mt-4 text-white">
+          ADRESS:<br>
+          Postadress:&nbsp; Skysport Årevägen 173, 837 52 Åre<br>
+          Besöksadress:&nbsp; Årevägen 173 (Draklanda)
+        </p>
+        <p> TELEFON:<br>Kontor: 0647-53200<br>Mobil: 070-2113842, 070-569 90 89</p>
+        <p>EPOST:&nbsp;bokning@areskutan.se </p>
+      </div>
       <div class="col-span-1">
+        <!-- <h4>ÖPPETTIDER</h4> -->
+        <p class="mt-4 text-white">ÖPPETTIDER<br>Kontoret på Årevägen 173 är öppet mån-fre 09-16
+Lördag och Söndag stängt.
+Boendeanläggningen är öppen året runt. </p>
+      </div>
+      
+<!--       <div class="col-span-1">
         <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
         <nav>
           <ul class="space-y-2">
@@ -74,7 +91,7 @@ const currentYear = new Date().getFullYear();
             ))}
           </ul>
         </nav>
-      </div>
+      </div> -->
     </div>
 
     <div class="mt-8 flex flex-col md:flex-row justify-between items-center">
@@ -98,4 +115,5 @@ const currentYear = new Date().getFullYear();
       </nav>
     </div>
   </div>
+ <TopButton />
 </footer>

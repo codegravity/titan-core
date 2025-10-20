@@ -1,0 +1,45 @@
+---
+import type { Link } from "../utils/types";
+
+/* interface Props {
+  data: {
+    isVisible: boolean;
+    link: Link;
+    description: string;
+  };
+}
+
+const {
+  data: {
+    isVisible,
+    description,
+    link,
+  },
+} = Astro.props as Props;
+
+if (!isVisible) return null; */
+---
+
+<div id="banner"
+  class="flex items-center gap-x-6 bg-primary-light px-6 py-2.5 sm:px-3.5 sm:before:flex-1  top-0 z-50">
+<div class="flex flex-1 justify-end gap-x-4">
+  <p class="text-sm/6 text-white">0647-51186</p>
+  <p class="text-sm/6 text-white">070-5699089</p>
+  <p class="text-sm/6 text-white"> | </p>
+  <p class="text-sm/6 text-white">
+    <a href="mailto:info@areskutan.se" class="text-sm/6 text-white">info@areskutan.se</a>
+  </p>
+
+  </div>
+</div>
+
+<script>
+  const dismissButton = document.getElementById("dismiss-button");
+  const banner = document.getElementById("banner");
+
+  if (dismissButton && banner) {
+    dismissButton.addEventListener("click", function () {
+      banner.style.display = "none";
+    });
+  }
+</script>
