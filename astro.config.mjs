@@ -4,6 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 import svelte from '@astrojs/svelte';
 
+import node from '@astrojs/node';
+
 //import vercel from '@astrojs/vercel';
 
 // Get the site URL from environment variable or use a default for local development
@@ -57,6 +59,10 @@ export default defineConfig({
     ]
   },
 
-  output: 'server',
   //adapter: vercel()
+  output: 'server',
+
+  adapter: node({
+    mode: 'standalone'
+  })
 });
