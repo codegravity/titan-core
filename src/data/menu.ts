@@ -2,7 +2,6 @@
 
 export const headerMenu = [
     { name: 'HEM', link: '/' },
-    { name: 'Test', link: '/team' },
     { name: 'AKTIVITETER', link: '/style-guide', showArrow: true,
         children: [
             { name: 'BOKA', link: '/aktiviteter/boka' },
