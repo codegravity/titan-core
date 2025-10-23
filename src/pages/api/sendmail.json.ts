@@ -3,10 +3,16 @@ export const prerender = false;
 import type { APIRoute } from 'astro'
 import nodemailer from 'nodemailer'
 
-const emailUser = import.meta.env.PUBLIC_EMAIL_USER
-const emailTo = import.meta.env.PUBLIC_EMAIL
-const emailToPass = import.meta.env.PUBLIC_EMAIL_PASS
-const host = import.meta.env.PUBLIC_EMAIL_HOST
+//const emailUser = import.meta.env.PUBLIC_EMAIL_USER
+//const emailTo = import.meta.env.PUBLIC_EMAIL
+//const emailToPass = import.meta.env.PUBLIC_EMAIL_PASS
+//const host = import.meta.env.PUBLIC_EMAIL_HOST
+
+//vercel env
+const emailUser = process.env.PUBLIC_EMAIL_USER
+const emailToPass = process.env.PUBLIC_EMAIL_PASS
+const host = process.env.PUBLIC_EMAIL_HOST
+const emailTo = 'astro@codegravity.net'
 //console.log('user to find', host);
 export const POST: APIRoute = async ({ request }) => {
    //console.log('request', request)
@@ -33,7 +39,7 @@ export const POST: APIRoute = async ({ request }) => {
     )}</div>`
 
     // sendmail
-    let mailTransporter = nodemailer.createTransport({
+    let mailTransporter = await nodemailer.createTransport({
       host,
       port: 587,
       secure: false,
