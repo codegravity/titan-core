@@ -39,10 +39,10 @@ export const POST: APIRoute = async ({ request }) => {
     )}</div>`
 
     // sendmail
-    let mailTransporter = await nodemailer.createTransport({
+    let mailTransporter = nodemailer.createTransport({
       host,
-      port: 587,
-      secure: false,
+      port: 465,
+      secure: true,
       auth: {
         user: emailUser,
         pass: emailToPass,
