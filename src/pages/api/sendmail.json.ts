@@ -10,7 +10,7 @@ import nodemailer from 'nodemailer'
 
 //vercel env
 const emailUser = "AKIAQPMQAGARF7NITJYL"
-const emailToPass = process.env.PUBLIC_EMAIL_PASS
+const emailToPass = "BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY"
 const host = "email-smtp.eu-north-1.amazonaws.com"
 const emailTo = 'astro@codegravity.net'
 //console.log('user to find', host);
