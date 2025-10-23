@@ -9,10 +9,10 @@ import nodemailer from 'nodemailer'
 //const host = import.meta.env.PUBLIC_EMAIL_HOST
 
 //vercel env
-const emailUser = import.meta.env.EMAIL_USER
-const emailToPass = import.meta.env.EMAIL_PASS
+const emailUser = process.env.EMAIL_USER
+const emailToPass = process.env.EMAIL_PASS
 const host = 'email-smtp.eu-north-1.amazonaws.com'
-const emailTo = import.meta.env.EMAIL
+const emailTo = process.env.EMAIL
 //console.log('user to find', host);
 export const POST: APIRoute = async ({ request }) => {
    //console.log('request', request)
