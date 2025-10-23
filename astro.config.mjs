@@ -6,7 +6,7 @@ import svelte from '@astrojs/svelte';
 
 import node from '@astrojs/node';
 
-//import vercel from '@astrojs/vercel';
+import vercel from '@astrojs/vercel';
 
 // Get the site URL from environment variable or use a default for local development
 const site = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
@@ -59,10 +59,10 @@ export default defineConfig({
     ]
   },
 
-  //adapter: vercel()
+  adapter: vercel(),
   output: 'server',
 
-  adapter: node({
+/*   adapter: node({
     mode: 'standalone'
-  })
+  }) */
 });
