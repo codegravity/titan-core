@@ -13,9 +13,8 @@ const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
 const emailTo = process.env.PUBLIC_EMAIL
-//console.log('user to find', host);
+
 export const POST: APIRoute = async ({ request }) => {
-   //console.log('request', request)
 
   if (request.headers.get('Content-Type') === 'application/json') {
     const formData = await request.json()
